@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+    db:
+      container_name: db
+      image: postgres:latest
+      environment:
+        POSTGRES_USER: test
+        POSTGRES_PASSWORD: test
+        POSTGRES_DB: currency_rates
+      ports:
+        - 5432:5432
+
+    django_app:
+      build:
+        context: .
+      environment:
+        - DB_NAME=currency_rates
+        - DB_HOST=db
+        - DB_PORT=5432
+      image: currency:latest
+      depends_on:
+        - db
+      ports:
+        - "8001:8000"
