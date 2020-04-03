@@ -6,3 +6,5 @@
 
 В админке модели Currency в actions есть действие
 **Update all currencies rates**, оно обновит курсы на основе данной вами ссылки.
+
+Приложение доступно по адресу **http://localhost:8001/admin**
